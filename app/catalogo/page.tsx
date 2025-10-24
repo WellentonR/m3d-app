@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server"
 import { ProductCard } from "@/components/product-card"
 import type { Product } from "@/lib/types"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { CatalogoFilters } from "@/components/catalogo-filters";
 
 interface CatalogoPageProps {
   searchParams: Promise<{
@@ -41,37 +41,10 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
         <p className="text-muted-foreground">Explore nossa coleção completa de miniaturas 3D</p>
       </div>
 
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">Categoria:</span>
-          <Select defaultValue={params.categoria || "todas"}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Todas" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="todas">Todas</SelectItem>
-              {uniqueCategories.map((cat) => (
-                <SelectItem key={cat} value={cat}>
-                  {cat}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">Ordenar por:</span>
-          <Select defaultValue={params.ordenar || "recentes"}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Mais recentes" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="recentes">Mais recentes</SelectItem>
-              <SelectItem value="preco-asc">Menor preço</SelectItem>
-              <SelectItem value="preco-desc">Maior preço</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+      <div className="mb-8">
+        <CatalogoFilters
+          categorias={uniqueCategories}
+        />
       </div>
 
       {products && products.length > 0 ? (

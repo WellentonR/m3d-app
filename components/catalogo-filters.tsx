@@ -41,7 +41,7 @@ export function CatalogoFilters({ categorias, categoriaAtual, ordenarAtual }: Ca
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Todas" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-white">
             <SelectItem value="todas">Todas</SelectItem>
             {categorias.map((cat) => (
               <SelectItem key={cat} value={cat}>
@@ -58,7 +58,7 @@ export function CatalogoFilters({ categorias, categoriaAtual, ordenarAtual }: Ca
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Mais recentes" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-white">
             <SelectItem value="recentes">Mais recentes</SelectItem>
             <SelectItem value="preco-asc">Menor preço</SelectItem>
             <SelectItem value="preco-desc">Maior preço</SelectItem>

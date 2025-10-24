@@ -16,8 +16,8 @@ export function LogoutButton() {
   }
 
   return (
-    <Button variant="outline" onClick={handleLogout}>
-      <LogOut className="mr-2 h-4 w-4" />
+    <Button className="text-red-600 hover:text-red-700" variant="outline" onClick={handleLogout}>
+      <LogOut className="mr-2 h-4 w-4 stroke-red-600" />
       Sair
     </Button>
   )
