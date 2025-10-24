@@ -41,7 +41,6 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
         .from("cart")
         .update({
           quantity: existingItem.quantity + quantity,
-          updated_at: new Date().toISOString(),
         })
         .eq("id", existingItem.id)
     } else {

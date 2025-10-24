@@ -42,7 +42,6 @@ export function ProductForm({ product }: ProductFormProps) {
           .from("products")
           .update({
             ...formData,
-            updated_at: new Date().toISOString(),
           })
           .eq("id", product.id)
       } else {
